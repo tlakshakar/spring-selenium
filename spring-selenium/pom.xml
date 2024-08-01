@@ -30,6 +30,7 @@
 		<java.version>22</java.version>
 		<selenium.version>4.22.0</selenium.version>
 		<webdrivermanager.version>5.9.1</webdrivermanager.version>
+		<faker.verison>1.0.2</faker.verison>
 		<testng.version>7.10.2</testng.version>
 	</properties>
 	<dependencies>
@@ -59,7 +60,7 @@
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
-			<version>1.0.2</version>
+			<version>${faker.verison}</version>
 		</dependency>
 
 		<dependency>
