@@ -99,6 +99,16 @@
 						<include>**/*Test.java</include>
 					</includes>
 				</configuration>
+
+				<dependencies>
+					<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-testng -->
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-testng</artifactId>
+						<version>3.3.1</version>
+					</dependency>
+
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
