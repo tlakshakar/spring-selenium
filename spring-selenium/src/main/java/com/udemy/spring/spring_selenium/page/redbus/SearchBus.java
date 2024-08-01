@@ -49,9 +49,10 @@ public class SearchBus extends Base {
     }
     public void searchBusForToday(String from, String to) {
         this.from.sendKeys(from);
-        this.from.sendKeys(Keys.ENTER);
+        this.from.sendKeys(Keys.TAB);
         this.to.sendKeys(to);
-        this.to.sendKeys(Keys.ENTER);
+        pauseExecution(500);
+        this.to.sendKeys(Keys.TAB);
         this.date_picker.click();
         this.selectCurrentDay();
     }
