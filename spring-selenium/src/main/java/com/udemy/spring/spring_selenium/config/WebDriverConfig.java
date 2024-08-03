@@ -6,11 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import java.time.Duration;
 
@@ -20,29 +18,48 @@ import java.time.Duration;
  * - firefoxDriver
  * - webDriverWait
  */
+@Lazy
 @Configuration
 public class WebDriverConfig {
     @Value("${default.timeout:30}")
     private int timeout;
 
-    @Bean
-    @ConditionalOnProperty(name = "browser", havingValue = "chrome")
-    public WebDriver chromeDriver() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
-    }
 
-    @Bean
-    @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     /**
+     * @ConditionalOnProperty(name = "browser", havingValue = "firefox")
+     *
+     * When building Spring-based applications, you often need to create beans conditionally based on configuration properties.
+     * This annotation enables bean registration only if an environment property or .properties is present and has a specific value.
+     *
      * @Primary
      *
      * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
      * you can use @Primary to give higher preference to a specific bean.
      */
+    @Bean
+    @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver firefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
+    }
+
+
+    /**
+     * @ConditionalOnProperty(name = "browser", havingValue = "chrome")
+     *
+     * When building Spring-based applications, you often need to create beans conditionally based on configuration properties.
+     * This annotation enables bean registration only if an environment property or .properties is present and has a specific value.
+     *
+     * @Primary
+     *
+     * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
+     * you can use @Primary to give higher preference to a specific bean.
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public WebDriver chromeDriver() {
+        WebDriverManager.chromedriver().setup();
+        return new ChromeDriver();
     }
 
     /**

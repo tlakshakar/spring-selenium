@@ -1,17 +1,22 @@
 package com.udemy.spring.spring_selenium.page;
 
+import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 public abstract class Base {
     @Autowired
     protected WebDriver driver;
     @Autowired
     protected WebDriverWait webDriverWait;
+    @Lazy
+    @Autowired
+    private LoggerConfig loggerConfig;
 
     /**
      * This method executes automatically as the bean is instantiated
