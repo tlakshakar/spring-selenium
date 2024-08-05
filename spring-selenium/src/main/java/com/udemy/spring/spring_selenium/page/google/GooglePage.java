@@ -20,6 +20,8 @@ public class GooglePage extends Base {
         this.driver.get(url);
     }
 
+    public String getUrl() { return this.driver.getCurrentUrl(); }
+
     public String getGooglePageTitle() {
         return driver.getTitle();
     }
@@ -30,6 +32,14 @@ public class GooglePage extends Base {
 
     public SearchResultComponent getSearchResultComponent() {
         return searchResultComponent;
+    }
+
+    /**
+     * Purpose of this provide hard delay only for debugging
+     * @param millis
+     */
+    public void delay(int millis) {
+        pauseExecution(millis);
     }
 
     @Override

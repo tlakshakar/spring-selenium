@@ -27,13 +27,14 @@ public class GoogleTest extends SpringBaseTestNGTests {
     public void googleTest() throws IOException {
         this.loggerConfig.getloggingService().logMessage("..............................................");
         this.googlePage.goTo();
-        this.loggerConfig.getloggingService().logMessage("Navigating to google web page");
+        this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
         Assert.assertTrue(this.googlePage.isAt());
-        this.loggerConfig.getloggingService().logMessage("Search component of google page is loaded");
+        this.loggerConfig.getloggingService().logMessage("Search bar of google page is loaded");
         Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
         this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
-        this.loggerConfig.getloggingService().logMessage("Searching a text enviroment");
-        this.googlePage.getSearchComponent().search("enviroment ");
+        this.googlePage.delay(1000); // debugging
+        this.googlePage.getSearchComponent().search("environment ");
+        this.loggerConfig.getloggingService().logMessage("Searching a text environment");
         Assert.assertTrue(this.googlePage.getSearchResultComponent().isAt());
         this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
         Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);

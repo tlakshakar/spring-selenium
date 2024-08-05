@@ -21,6 +21,7 @@
 		<faker.verison>1.0.2</faker.verison>
 		<testng.version>7.10.2</testng.version>
 		<maven.surefire.plugin>3.3.1</maven.surefire.plugin>
+		<spring.profiles.active>qa</spring.profiles.active>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -98,6 +99,9 @@
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
+					<systemPropertyVariables>
+						<spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
+					</systemPropertyVariables>
 				</configuration>
 
 				<dependencies>
@@ -107,7 +111,6 @@
 						<artifactId>surefire-testng</artifactId>
 						<version>3.3.1</version>
 					</dependency>
-
 				</dependencies>
 			</plugin>
 		</plugins>
