@@ -33,6 +33,7 @@ public class GoogleTest extends SpringBaseTestNGTests {
         Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
         this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
         this.googlePage.delay(1000); // debugging
+        this.loggerConfig.getloggingService().logMessage("Delaying the process for debugging purpose");
         this.googlePage.getSearchComponent().search("environment ");
         this.loggerConfig.getloggingService().logMessage("Searching a text environment");
         Assert.assertTrue(this.googlePage.getSearchResultComponent().isAt());
