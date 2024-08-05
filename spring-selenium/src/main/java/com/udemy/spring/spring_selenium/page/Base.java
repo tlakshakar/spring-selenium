@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
+
 public abstract class Base {
     @Autowired
     protected WebDriver driver;
@@ -48,10 +49,9 @@ public abstract class Base {
      */
     @PreDestroy
     public void destroy() {
-        System.out.println(
-                "Container has been closed "
-                        + "and I'm the destroy() method");
+        System.out.println("Container has been closed and I'm the destroy() method");
     }
+
     public abstract boolean isAt();
 
     /**

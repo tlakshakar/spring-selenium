@@ -37,6 +37,7 @@ public class WebDriverConfig {
      * you can use @Primary to give higher preference to a specific bean.
      */
     @Bean
+    //@Primary
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver firefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
