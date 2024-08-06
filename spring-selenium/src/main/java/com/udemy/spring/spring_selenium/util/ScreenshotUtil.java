@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 
-@Lazy
+@Lazy // It is not related to inject a bean uniquely
 @Component
 public class ScreenshotUtil {
     @Autowired

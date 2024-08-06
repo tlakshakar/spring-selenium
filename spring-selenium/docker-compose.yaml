@@ -1,0 +1,38 @@
+#Creating a network and placing all containers into it, docker-compose does it internally
+version: "3"
+name: selenium-grid
+services:
+  hub:
+    image: selenium/hub:4.22.0
+    # port-mapping is optional. Actually we need it to access UI
+    ports:
+      - "4444:4444"
+      # - 4442:4442 -- For internal communication
+      # - 4443:4443 -- For internal communication
+  chrome:
+    image: selenium/node-chrome:4.22
+    shm_size: '2g'
+    depends_on:
+      - hub
+    environment:
+      #ENV variables using which chrome will come to know where HUB is running to contact
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      #Instead of running multiple containers to work around this issue, maybe we can try to increase the number of concurrency.
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      #Overriding MAX SESSIONS count
+      - SE_NODE_MAX_SESSIONS=2
+  firefox:
+    image: selenium/node-firefox:4.22.0
+    depends_on:
+      - hub
+    environment:
+      #ENV variables using which firefox will come to know where HUB is running to contact
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      #Instead of running multiple containers to work around this issue, maybe we can try to increase the number of concurrency.
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      #Overriding MAX SESSIONS
+      - SE_NODE_MAX_SESSIONS=2

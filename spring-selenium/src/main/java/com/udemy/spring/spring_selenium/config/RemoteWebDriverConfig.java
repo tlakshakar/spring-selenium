@@ -1,22 +1,25 @@
 package com.udemy.spring.spring_selenium.config;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Profile;
 
+import java.net.URL;
 import java.time.Duration;
 
 /**
- * In this I have 3 beans
- * - chromeDriver
- * - firefoxDriver
- * - webDriverWait
+ * RemoteWebDriverConfig -> This class is created to handle selenium grid where we need remote webdriver instances
+ * WebDriverConfig -> This class is created to handle local webdriver instances
  */
 @Lazy // It is not related to inject a bean uniquely
 @Configuration
@@ -28,48 +31,23 @@ import java.time.Duration;
  * You can annotate that bean with the @Profile("dev") annotation.
  * It will only be present in the container during development. In production, the dev profile won’t be active.
  */
-@Profile("!remote") // NOT condition
-public class WebDriverConfig {
+@Profile("remote")
+public class RemoteWebDriverConfig {
+    @Value("${selenium.grid.url}")
+    private URL url;
     @Value("${default.timeout:30}")
     private int timeout;
 
-
-    /**
-     * @ConditionalOnProperty(name = "browser", havingValue = "firefox")
-     *
-     * When building Spring-based applications, you often need to create beans conditionally based on configuration properties.
-     * This annotation enables bean registration only if an environment property or .properties is present and has a specific value.
-     *
-     * @Primary
-     *
-     * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
-     * you can use @Primary to give higher preference to a specific bean.
-     */
     @Bean
-    //@Primary
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
-    public WebDriver firefoxDriver() {
-        WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver();
+    public WebDriver remoteFirefoxDriver() {
+        return new RemoteWebDriver(this.url, new FirefoxOptions());
     }
 
-
-    /**
-     * @ConditionalOnProperty(name = "browser", havingValue = "chrome")
-     *
-     * When building Spring-based applications, you often need to create beans conditionally based on configuration properties.
-     * This annotation enables bean registration only if an environment property or .properties is present and has a specific value.
-     *
-     * @Primary
-     *
-     * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
-     * you can use @Primary to give higher preference to a specific bean.
-     */
     @Bean
     @ConditionalOnMissingBean
-    public WebDriver chromeDriver() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+    public WebDriver remoteChromeDriver() {
+        return new RemoteWebDriver(this.url, new ChromeOptions());
     }
 
     /**

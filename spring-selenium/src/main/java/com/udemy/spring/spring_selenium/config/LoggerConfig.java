@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Lazy;
  * Essentially, it allows you to create beans programmatically rather than relying on XML configuration.
  */
 
-@Lazy
+@Lazy // It is not related to inject a bean uniquely
 @Configuration
 public class LoggerConfig {
     @Bean
