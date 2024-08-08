@@ -102,6 +102,9 @@
 					<systemPropertyVariables>
 						<spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
 					</systemPropertyVariables>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng-suite.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 
 				<dependencies>

@@ -24,7 +24,7 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
     private LoggerConfig loggerConfig;
 
     @Test
-    public void googleTest1() throws IOException {
+    public void googleTest21() throws IOException {
         this.loggerConfig.getloggingService().logMessage("..............................................");
         this.googlePage.goTo();
         this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
