@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class GoogleTest1 extends SpringBaseTestNGTests {
     @Autowired
@@ -24,8 +25,9 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
     private LoggerConfig loggerConfig;
 
     @Test
-    public void googleTest11() throws IOException {
+    public void googleTest11(Method method) throws IOException {
         this.loggerConfig.getloggingService().logMessage("..............................................");
+        this.loggerConfig.getloggingService().logMessage("Running Test: "+method.getName());
         this.googlePage.goTo();
         this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
         Assert.assertTrue(this.googlePage.isAt());
@@ -47,8 +49,9 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
     }
 
     @Test
-    public void googleTest12() throws IOException {
+    public void googleTest12(Method method) throws IOException {
         this.loggerConfig.getloggingService().logMessage("..............................................");
+        this.loggerConfig.getloggingService().logMessage("Running Test: "+method.getName());
         this.googlePage.goTo();
         this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
         Assert.assertTrue(this.googlePage.isAt());

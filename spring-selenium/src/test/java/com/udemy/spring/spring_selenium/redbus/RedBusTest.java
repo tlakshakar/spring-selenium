@@ -22,7 +22,7 @@ public class RedBusTest extends SpringBaseTestNGTests {
 
     @Test
     public void redbusTest1(Method method) {
-        System.out.println("Running Test: "+method.getName());
+        System.out.println("Running Test: "+method.getName()+"..................");
         this.redBusPage.goTo();
         this.redBusPage.maximizeWindow();
         Assert.assertTrue(this.redBusPage.isAt());
