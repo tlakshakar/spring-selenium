@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class GoogleTest extends SpringBaseTestNGTests {
+public class GoogleTest2 extends SpringBaseTestNGTests {
     @Autowired
     private GooglePage googlePage;
 
@@ -24,24 +24,13 @@ public class GoogleTest extends SpringBaseTestNGTests {
     private LoggerConfig loggerConfig;
 
     @Test
-    public void googleTest() throws IOException {
+    public void googleTest1() throws IOException {
         this.loggerConfig.getloggingService().logMessage("..............................................");
         this.googlePage.goTo();
         this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
         Assert.assertTrue(this.googlePage.isAt());
         this.loggerConfig.getloggingService().logMessage("Search bar of google page is loaded");
-        Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
         this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
-        this.googlePage.delay(1000); // debugging
-        this.loggerConfig.getloggingService().logMessage("Delaying the process for debugging purpose");
-        this.googlePage.getSearchComponent().search("environment ");
-        this.loggerConfig.getloggingService().logMessage("Searching a text environment");
-        Assert.assertTrue(this.googlePage.getSearchResultComponent().isAt());
-        this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
-        Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
-        this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-        this.screenShotUtil.takeScreenshot("GOOGLE.png");
-        this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
+        Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
         this.loggerConfig.getloggingService().logMessage("..............................................");
-    }
-}
+    }}

@@ -4,9 +4,13 @@ import com.udemy.spring.spring_selenium.page.Base;
 import org.openqa.selenium.JavascriptExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+@Lazy
 @Component
+@Scope("prototype")
 public class RedBusPage extends Base {
     @Value("${application.url}")
     private String url;

@@ -25,6 +25,8 @@ public class SearchComponent extends Base {
                 .ifPresent(WebElement::click);
     }
 
+    public void clearSearchBox() { this.searchBox.clear(); }
+
     @Override
     public boolean isAt() {
         return this.webDriverWait.until((d) -> this.searchBox.isDisplayed());
