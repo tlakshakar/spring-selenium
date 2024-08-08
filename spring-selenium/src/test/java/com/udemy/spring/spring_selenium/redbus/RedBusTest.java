@@ -21,7 +21,6 @@ public class RedBusTest extends SpringBaseTestNGTests {
     private ScreenshotUtil screenshotUtil;
 
     @Test
-    @Ignore
     public void redbusTest1(Method method) {
         System.out.println("Running Test: "+method.getName());
         this.redBusPage.goTo();
@@ -51,7 +50,6 @@ public class RedBusTest extends SpringBaseTestNGTests {
      * This problem can be resolved with @Scope annotation
      */
     @Test
-    @Ignore
     public void redbusTest2(Method method) {
         System.out.println("Running Test: "+method.getName());
         this.redBusPage.goTo();
