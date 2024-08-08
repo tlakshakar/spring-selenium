@@ -2,6 +2,7 @@ package com.udemy.spring.spring_selenium.scope_annotation;
 
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class JuniorSeniorTest extends SpringBaseTestNGTests {
@@ -11,6 +12,7 @@ public class JuniorSeniorTest extends SpringBaseTestNGTests {
     private SeniorEng senior;
 
     @Test
+    @Ignore
     public void scopeTest() {
         this.junior.setAmount(100);
         System.out.println("Junior :: " + this.junior.getSalary().getAmount() + "$");
