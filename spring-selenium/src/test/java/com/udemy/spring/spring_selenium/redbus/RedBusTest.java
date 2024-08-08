@@ -38,7 +38,7 @@ public class RedBusTest extends SpringBaseTestNGTests {
         int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
         Assert.assertTrue(countOfBus > 0);
 
-        screenshotUtil.takeScreenshot("REDBUS.png");
+        screenshotUtil.takeScreenshot("REDBUS1.png");
     }
 
     /**
@@ -67,6 +67,6 @@ public class RedBusTest extends SpringBaseTestNGTests {
         int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
         Assert.assertTrue(countOfBus > 0);
 
-        screenshotUtil.takeScreenshot("REDBUS.png");
+        screenshotUtil.takeScreenshot("REDBUS2.png");
     }
 }

@@ -43,7 +43,7 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
         this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
         Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
         this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-        this.screenShotUtil.takeScreenshot("GOOGLE.png");
+        this.screenShotUtil.takeScreenshot("GOOGLE11.png");
         this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
         this.loggerConfig.getloggingService().logMessage("..............................................");
     }
@@ -67,7 +67,7 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
         this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
         Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
         this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-        this.screenShotUtil.takeScreenshot("GOOGLE.png");
+        this.screenShotUtil.takeScreenshot("GOOGLE12.png");
         this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
         this.loggerConfig.getloggingService().logMessage("..............................................");
     }
