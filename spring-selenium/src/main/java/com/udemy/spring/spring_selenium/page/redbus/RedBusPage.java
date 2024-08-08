@@ -33,4 +33,12 @@ public class RedBusPage extends Base {
     public boolean isAt() {
         return this.searchBus.isAt();
     }
+
+    /**
+     * Purpose of this provide hard delay only for debugging
+     * @param millis
+     */
+    public void delay(int millis) {
+        pauseExecution(millis);
+    }
 }

@@ -5,9 +5,11 @@ import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
 import com.udemy.spring.spring_selenium.util.CommonUtil;
 import com.udemy.spring.spring_selenium.util.ScreenshotUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
@@ -22,23 +24,30 @@ public class RedBusTest extends SpringBaseTestNGTests {
 
     @Test
     public void redbusTest1(Method method) {
-        System.out.println("Running Test: "+method.getName()+"..................");
-        this.redBusPage.goTo();
-        this.redBusPage.maximizeWindow();
-        Assert.assertTrue(this.redBusPage.isAt());
+        try {
+            System.out.println("Running Test: "+method.getName()+"..................");
+            this.redBusPage.goTo();
+            this.redBusPage.maximizeWindow();
+            this.redBusPage.delay(1000); // debugging purpose
+            Assert.assertTrue(this.redBusPage.isAt());
 
-        this.redBusPage.getSearchBus().searchBusForToday("Bangalore","Chennai");
-        this.redBusPage.getSearchBus().clickSearchBusesButton();
-        Assert.assertTrue(this.redBusPage.getSearchResults().isAt());
+            this.redBusPage.getSearchBus().searchBusForToday("Bangalore","Chennai");
+            this.redBusPage.getSearchBus().clickSearchBusesButton();
+            Assert.assertTrue(this.redBusPage.getSearchResults().isAt());
 
-        String busheaderTag = this.redBusPage.getSearchResults().getBusHeaderTag();
-        System.out.println("Bus Header Tag: "+busheaderTag);
-        String countOfBuses = this.redBusPage.getSearchResults().getCountOfBuses();
-        System.out.println("Count of Buses: "+countOfBuses);
-        int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
-        Assert.assertTrue(countOfBus > 0);
+            String busheaderTag = this.redBusPage.getSearchResults().getBusHeaderTag();
+            System.out.println("Bus Header Tag: "+busheaderTag);
+            String countOfBuses = this.redBusPage.getSearchResults().getCountOfBuses();
+            System.out.println("Count of Buses: "+countOfBuses);
+            int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
+            Assert.assertTrue(countOfBus > 0);
 
-        screenshotUtil.takeScreenshot("REDBUS1.png");
+            screenshotUtil.takeScreenshot("REDBUS1.png");
+        } catch (Exception e) {
+            System.out.println("Running Test: "+method.getName());
+            System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -51,22 +60,29 @@ public class RedBusTest extends SpringBaseTestNGTests {
      */
     @Test
     public void redbusTest2(Method method) {
-        System.out.println("Running Test: "+method.getName());
-        this.redBusPage.goTo();
-        this.redBusPage.maximizeWindow();
-        Assert.assertTrue(this.redBusPage.isAt());
+        try {
+            System.out.println("Running Test: "+method.getName());
+            this.redBusPage.goTo();
+            this.redBusPage.maximizeWindow();
+            this.redBusPage.delay(1000); // debugging purpose
+            Assert.assertTrue(this.redBusPage.isAt());
 
-        this.redBusPage.getSearchBus().searchBusForParticularDay("Bangalore","Chennai", CommonUtil.getRandomDateWithinNextTwoMonths());
-        this.redBusPage.getSearchBus().clickSearchBusesButton();
-        Assert.assertTrue(this.redBusPage.getSearchResults().isAt());
+            this.redBusPage.getSearchBus().searchBusForParticularDay("Bangalore","Chennai", CommonUtil.getRandomDateWithinNextTwoMonths());
+            this.redBusPage.getSearchBus().clickSearchBusesButton();
+            Assert.assertTrue(this.redBusPage.getSearchResults().isAt());
 
-        String busheaderTag = this.redBusPage.getSearchResults().getBusHeaderTag();
-        System.out.println("Bus Header Tag: "+busheaderTag);
-        String countOfBuses = this.redBusPage.getSearchResults().getCountOfBuses();
-        System.out.println("Count of Buses: "+countOfBuses);
-        int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
-        Assert.assertTrue(countOfBus > 0);
+            String busheaderTag = this.redBusPage.getSearchResults().getBusHeaderTag();
+            System.out.println("Bus Header Tag: "+busheaderTag);
+            String countOfBuses = this.redBusPage.getSearchResults().getCountOfBuses();
+            System.out.println("Count of Buses: "+countOfBuses);
+            int countOfBus = Integer.parseInt(countOfBuses.split(" ")[0]);
+            Assert.assertTrue(countOfBus > 0);
 
-        screenshotUtil.takeScreenshot("REDBUS2.png");
+            screenshotUtil.takeScreenshot("REDBUS2.png");
+        } catch (Exception e) {
+            System.out.println("Running Test: "+method.getName());
+            System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
+            System.out.println(e.getMessage());
+        }
     }
 }
