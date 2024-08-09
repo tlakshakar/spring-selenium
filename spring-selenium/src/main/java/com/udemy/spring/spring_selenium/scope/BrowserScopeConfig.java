@@ -22,7 +22,7 @@ public class BrowserScopeConfig {
      * @return
      */
     @Bean
-    public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
+    public static BeanFactoryPostProcessor beanFactoryPostProcessor(){
         return new BrowserScopePostProcessor();
     }
 }
