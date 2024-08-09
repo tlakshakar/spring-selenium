@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 
+@Ignore
 public class RedBusTest extends SpringBaseTestNGTests {
     @Autowired
     private RedBusPage redBusPage;

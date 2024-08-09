@@ -1,9 +1,8 @@
-package com.udemy.spring.spring_selenium.conditional_annotations;
+package com.udemy.spring.spring_selenium.conditional_annotations_demo;
 
 import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 

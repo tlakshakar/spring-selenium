@@ -1,5 +1,6 @@
 package com.udemy.spring.spring_selenium.config;
 
+import com.udemy.spring.spring_selenium.custom_annotation.LazyConfiguration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,8 +19,22 @@ import java.time.Duration;
  * - firefoxDriver
  * - webDriverWait
  */
-@Lazy // It is not related to inject a bean uniquely
-@Configuration
+
+/**
+ * @Configuration
+ *
+ * The @Configuration annotation is used at the class level to indicate that the class is a source of bean definitions.
+ * It tells Spring that this class contains methods annotated with @Bean, which define beans to be managed by the Spring container.
+ * Essentially, it allows you to create beans programmatically rather than relying on XML configuration.
+ *
+ * @Lazy
+ *
+ * Spring creates all singleton beans eagerly at the startup of the application context. Using @Lazy, you can defer the creation of a bean until it is actually needed, which can help improve the startup time of your application.
+ * You can apply @Lazy to @Component and @Bean definitions.
+ * It is not related to inject a bean uniquely.
+ */
+//@Lazy // It is not related to inject a bean uniquely
+//@Configuration
 /**
  * @Profile -- This annotation allows you to conditionally activate or deactivate beans based on specific profiles.
  * Profiles are a way to segregate parts of your application configuration and make them available only in certain environments (e.g., development, testing, production).
@@ -29,6 +44,7 @@ import java.time.Duration;
  * It will only be present in the container during development. In production, the dev profile won’t be active.
  */
 @Profile("!remote") // NOT condition
+@LazyConfiguration
 public class WebDriverConfig {
     @Value("${default.timeout:30}")
     private int timeout;
@@ -48,6 +64,7 @@ public class WebDriverConfig {
     @Bean
     //@Primary
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
+    @Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created.
     public WebDriver firefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
@@ -66,6 +83,8 @@ public class WebDriverConfig {
      * you can use @Primary to give higher preference to a specific bean.
      */
     @Bean
+    //@Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic.
+    @Scope("browserscope") // Spring will look for this scope in its lifecycle
     @ConditionalOnMissingBean
     public WebDriver chromeDriver() {
         WebDriverManager.chromedriver().setup();

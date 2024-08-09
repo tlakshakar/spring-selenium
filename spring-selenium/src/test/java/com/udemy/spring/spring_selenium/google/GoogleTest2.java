@@ -38,6 +38,8 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
             this.loggerConfig.getloggingService().logMessage("Search bar of google page is loaded");
             this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
             Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
+            this.loggerConfig.getloggingService().logMessage("Quitting/Closing the browser");
+            this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());

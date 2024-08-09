@@ -1,10 +1,10 @@
-package com.udemy.spring.spring_selenium.scope_annotation;
+package com.udemy.spring.spring_selenium.singleton_scope_annotation_demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SeniorEng {
+public class JuniorEng {
     @Autowired
     private Salary salary;
 

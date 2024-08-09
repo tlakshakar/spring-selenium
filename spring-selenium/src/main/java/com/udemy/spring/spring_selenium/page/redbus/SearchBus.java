@@ -1,5 +1,6 @@
 package com.udemy.spring.spring_selenium.page.redbus;
 
+import com.udemy.spring.spring_selenium.custom_annotation.PageFragment;
 import com.udemy.spring.spring_selenium.page.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+//@Component // @Component by default, it will be a singleton scope. So the only one instance will be created and all the threads will be using the same instance. If you need a different scope, you can use the @Scope annotation to specify it.
+@PageFragment
 public class SearchBus extends Base {
     @FindBy(css = "#src.sc-bxivhb")
     public WebElement from;

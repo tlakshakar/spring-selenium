@@ -1,22 +1,22 @@
-package com.udemy.spring.spring_selenium.conditional_annotations;
+package com.udemy.spring.spring_selenium.conditional_annotations_demo;
+
 import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("ACCORD")
-//@ConditionalOnExpression("${car.speed} < 70")
-public class Accord implements Car {
+//@ConditionalOnExpression("${car.speed} > 70")
+@Qualifier("TOYOTA")
+public class Toyota implements Car {
     @Lazy
     @Autowired
     LoggerConfig loggerConfig;
     @Override
     public void run() {
         loggerConfig.getloggingService().logMessage("..........................");
-        loggerConfig.getloggingService().logMessage("...........Accord.........");
+        loggerConfig.getloggingService().logMessage("...........Toyota.........");
     }
 
     @Override
