@@ -50,12 +50,16 @@ public class RedBusTest extends SpringBaseTestNGTests {
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
     }
 
@@ -96,12 +100,16 @@ public class RedBusTest extends SpringBaseTestNGTests {
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
     }
 
@@ -142,12 +150,16 @@ public class RedBusTest extends SpringBaseTestNGTests {
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
     }
 }
