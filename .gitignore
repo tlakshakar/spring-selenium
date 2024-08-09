@@ -123,3 +123,9 @@ out/
 **/mvnw
 **/mvnw.cmd
 **/node_modules/
+
+# Except image files (replace with your desired image extensions)
+*.jpg
+*.png
+*.gif
+# Add more image formats as needed

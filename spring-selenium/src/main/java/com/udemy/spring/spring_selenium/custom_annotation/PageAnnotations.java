@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
+/**
+ * Purpose of this class is wherever we will be adding annotation to any class that will be treated as main class or main page.
+ */
+
 @Lazy
 @Component
 @Scope("prototype")
