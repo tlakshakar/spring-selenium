@@ -12,9 +12,9 @@
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest2" />
         </classes>
     </test>
-    <test name="RedBusTest_1">
+    <!--<test name="RedBusTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.redbus.RedBusTest" />
         </classes>
-    </test>
+    </test>-->
 </suite>

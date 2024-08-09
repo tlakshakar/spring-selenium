@@ -5,14 +5,10 @@ import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import com.udemy.spring.spring_selenium.page.google.GooglePage;
 import com.udemy.spring.spring_selenium.util.ScreenshotUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class GoogleTest1 extends SpringBaseTestNGTests {
@@ -48,13 +44,16 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
             Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
             this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-            this.screenShotUtil.takeScreenshot("GOOGLE11.png");
             this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
+            this.screenShotUtil.takeScreenshot("GOOGLE11.png");
+            this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
-            System.out.println(e.getMessage());
+            System.out.println("----------------------------------------------------------------");
+            e.printStackTrace();
+            System.out.println("----------------------------------------------------------------");
         }
     }
 
@@ -78,13 +77,16 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
             Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
             this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-            this.screenShotUtil.takeScreenshot("GOOGLE12.png");
             this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
+            this.screenShotUtil.takeScreenshot("GOOGLE12.png");
+            this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
-            System.out.println(e.getMessage());
+            System.out.println("----------------------------------------------------------------");
+            e.printStackTrace();
+            System.out.println("----------------------------------------------------------------");
         }
     }
 }

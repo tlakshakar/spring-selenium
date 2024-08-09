@@ -34,6 +34,7 @@ public class RedBusPage extends Base {
     public void goTo() {
         driver.get(url);
     }
+    public void close() { driver.quit(); }
     public void maximizeWindow() { driver.manage().window().maximize(); }
     @Override
     public boolean isAt() {

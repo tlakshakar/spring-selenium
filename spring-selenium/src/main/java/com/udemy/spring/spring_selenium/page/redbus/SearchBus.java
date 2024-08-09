@@ -50,8 +50,10 @@ public class SearchBus extends Base {
         return this.webDriverWait.until((driver) -> js.executeScript("return document.readyState").equals("complete"));
     }
     public void searchBusForToday(String from, String to) {
+        this.from.clear();
         this.from.sendKeys(from);
         this.from.sendKeys(Keys.TAB);
+        this.to.clear();
         this.to.sendKeys(to);
         pauseExecution(500);
         this.to.sendKeys(Keys.TAB);
@@ -59,9 +61,11 @@ public class SearchBus extends Base {
         this.selectCurrentDay();
     }
     public void searchBusForParticularDay(String from, String to, String dd_MMM_yyyy) {
+        this.from.clear();
         this.from.sendKeys(from);
         this.webDriverWait.until(ExpectedConditions.visibilityOfAllElements(this.listOfCities));
         this.from.sendKeys(Keys.TAB);
+        this.to.clear();
         this.to.sendKeys(to);
         pauseExecution(500);
         this.to.sendKeys(Keys.TAB);
