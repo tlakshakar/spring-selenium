@@ -15,8 +15,8 @@ import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 
-@Ignore
 public class RedBusTest extends SpringBaseTestNGTests {
+    @Lazy
     @Autowired
     private RedBusPage redBusPage;
 

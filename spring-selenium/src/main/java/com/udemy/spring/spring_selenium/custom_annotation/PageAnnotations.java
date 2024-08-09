@@ -13,5 +13,5 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE}) // It means that the annotation can only be applied to types, such as classes, interfaces, or enums. @Target can only be used to annotate other annotations.
 @Retention(RetentionPolicy.RUNTIME) // The annotation is recorded in the compiled class file and retained by the JVM at runtime, making it accessible through reflection.
 public @interface PageAnnotations {
-    String value() default "I am PageAnnotations. Can annotate a class";
+//    String value() default "I am PageAnnotations. Can annotate a class";
 }
