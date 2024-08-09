@@ -1,5 +1,6 @@
 package com.udemy.spring.spring_selenium.util;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -40,5 +41,32 @@ public class CommonUtil {
         // Format the date as "DD MMM YYYY"
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
         return randomDate.format(formatter);
+    }
+
+    /**
+     * Purpose of this to delete all images taken by TakesScreenShot
+     */
+    public static void deleteAllImages() {
+        // Specify the directory where the screenshots are saved
+        String screenshotDir = System.getProperty("user.dir");
+
+        // Create a File object for the directory
+        File dir = new File(screenshotDir);
+
+        // Get a list of all files in the directory
+        File[] files = dir.listFiles((d, name) -> name.endsWith(".png") || name.endsWith(".jpg"));
+
+        // Delete each file
+        if (files != null) {
+            for (File file : files) {
+                if (file.delete()) {
+                    System.out.println("Deleted " + file.getName());
+                } else {
+                    System.out.println("Failed to delete " + file.getName());
+                }
+            }
+        } else {
+            System.out.println("Directory not found or is empty.");
+        }
     }
 }

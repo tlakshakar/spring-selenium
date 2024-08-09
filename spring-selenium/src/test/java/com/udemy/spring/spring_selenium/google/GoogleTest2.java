@@ -3,10 +3,12 @@ package com.udemy.spring.spring_selenium.google;
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
 import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import com.udemy.spring.spring_selenium.page.google.GooglePage;
+import com.udemy.spring.spring_selenium.util.CommonUtil;
 import com.udemy.spring.spring_selenium.util.ScreenshotUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -24,6 +26,11 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
     @Lazy
     @Autowired
     private LoggerConfig loggerConfig;
+
+    @BeforeSuite
+    public void setup() {
+        CommonUtil.deleteAllImages();
+    }
 
     @Test
     public void googleTest21(Method method) throws IOException {

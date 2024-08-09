@@ -3,10 +3,12 @@ package com.udemy.spring.spring_selenium.google;
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
 import com.udemy.spring.spring_selenium.config.LoggerConfig;
 import com.udemy.spring.spring_selenium.page.google.GooglePage;
+import com.udemy.spring.spring_selenium.util.CommonUtil;
 import com.udemy.spring.spring_selenium.util.ScreenshotUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
@@ -23,6 +25,11 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
     @Lazy
     @Autowired
     private LoggerConfig loggerConfig;
+
+    @BeforeSuite
+    public void setup() {
+        CommonUtil.deleteAllImages();
+    }
 
     @Test
     public void googleTest11(Method method) {
@@ -81,7 +88,7 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
             this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
             this.screenShotUtil.takeScreenshot("GOOGLE12.png");
-            this.googlePage.close();
+            //this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {
             System.out.println("Running Test: "+method.getName());
