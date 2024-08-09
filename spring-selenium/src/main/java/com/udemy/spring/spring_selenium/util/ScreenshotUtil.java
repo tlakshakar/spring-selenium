@@ -1,5 +1,6 @@
 package com.udemy.spring.spring_selenium.util;
 
+import com.udemy.spring.spring_selenium.custom_annotation.LazyConfiguration;
 import com.udemy.spring.spring_selenium.custom_annotation.PageAnnotations;
 import jakarta.annotation.PostConstruct;
 import org.openqa.selenium.OutputType;
@@ -17,7 +18,7 @@ import java.nio.file.Path;
 
 //@Lazy // It is not related to inject a bean uniquely
 //@Component
-@PageAnnotations
+@LazyConfiguration
 public class ScreenshotUtil {
     @Autowired
     private TakesScreenshot driver;
