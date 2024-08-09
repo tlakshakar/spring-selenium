@@ -54,6 +54,8 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
     }
 
@@ -87,6 +89,8 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
     }
 }

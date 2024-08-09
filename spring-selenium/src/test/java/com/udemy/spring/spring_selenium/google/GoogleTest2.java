@@ -29,9 +29,9 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
     public void googleTest21(Method method) throws IOException {
         try {
             this.loggerConfig.getloggingService().logMessage("..............................................");
-            this.loggerConfig.getloggingService().logMessage("Running Test: "+method.getName());
+            this.loggerConfig.getloggingService().logMessage("Running Test: " + method.getName());
             this.googlePage.goTo();
-            this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
+            this.loggerConfig.getloggingService().logMessage("Navigating to \"" + this.googlePage.getUrl() + "\" web page");
             Assert.assertTrue(this.googlePage.isAt());
             this.loggerConfig.getloggingService().logMessage("Search bar of google page is loaded");
             this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
@@ -42,10 +42,13 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
             this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {
-            System.out.println("Running Test: "+method.getName());
+            System.out.println("Running Test: " + method.getName());
             System.out.println("Session ID is null. Please ensure WebDriver is properly initialized.");
             System.out.println("----------------------------------------------------------------");
             e.printStackTrace();
             System.out.println("----------------------------------------------------------------");
+            // Fail the test if an exception occurs
+            Assert.fail(method.getName()+" test failed due to exception: " + e.getMessage());
         }
-    }}
+    }
+}

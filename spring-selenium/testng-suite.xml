@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="spring-boot" parallel="tests" thread-count="3">
-    <test name="GoogleTest_1">
+    <test name="GTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest1" />
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest2" />
         </classes>
     </test>
-    <test name="GoogleTest_2">
+    <test name="GTest_2">
         <classes>
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest1" />
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest2" />
         </classes>
     </test>
-    <!--<test name="RedBusTest_1">
+    <!--<test name="RTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.redbus.RedBusTest" />
         </classes>
