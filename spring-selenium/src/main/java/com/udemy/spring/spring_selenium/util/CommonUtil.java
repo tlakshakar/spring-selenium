@@ -1,6 +1,7 @@
 package com.udemy.spring.spring_selenium.util;
 
 import java.io.File;
+import java.nio.file.FileSystems;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -10,6 +11,7 @@ public class CommonUtil {
     /**
      * This method generates a random date within the current year, ensuring it meets the specified criteria
      * The date is formatted as “DD MMM YYYY”:
+     *
      * @return
      */
     public static String getRandomDateInCurrentYear() {
@@ -27,6 +29,7 @@ public class CommonUtil {
     /**
      * This method generates a random date within the next two months, ensuring it meets the specified criteria.
      * The date is formatted as “DD MMM YYYY”:
+     *
      * @return
      */
     public static String getRandomDateWithinNextTwoMonths() {
@@ -48,7 +51,7 @@ public class CommonUtil {
      */
     public static void deleteAllImages() {
         // Specify the directory where the screenshots are saved
-        String screenshotDir = System.getProperty("user.dir");
+        String screenshotDir = System.getProperty("user.dir") + FileSystems.getDefault().getSeparator() + "screenshots";
 
         // Create a File object for the directory
         File dir = new File(screenshotDir);

@@ -8,13 +8,13 @@
     </test>
     <test name="GTest_2">
         <classes>
-            <class name="com.udemy.spring.spring_selenium.google.GoogleTest1" />
-            <class name="com.udemy.spring.spring_selenium.google.GoogleTest2" />
+            <class name="com.udemy.spring.spring_selenium.google.GoogleTest3" />
+            <class name="com.udemy.spring.spring_selenium.google.GoogleTest4" />
         </classes>
     </test>
-    <!--<test name="RTest_1">
+    <test name="RTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.redbus.RedBusTest" />
         </classes>
-    </test>-->
+    </test>
 </suite>

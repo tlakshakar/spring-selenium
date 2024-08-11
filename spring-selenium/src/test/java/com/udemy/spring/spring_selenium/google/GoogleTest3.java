@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 
-public class GoogleTest1 extends SpringBaseTestNGTests {
+public class GoogleTest3 extends SpringBaseTestNGTests {
     @Lazy
     @Autowired
     private GooglePage googlePage;
@@ -32,7 +32,7 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
     }
 
     @Test
-    public void googleTest11(Method method) {
+    public void googleTest31(Method method) {
         try {
             this.loggerConfig.getloggingService().logMessage("..............................................");
             this.loggerConfig.getloggingService().logMessage("Running Test: "+method.getName());
@@ -45,45 +45,14 @@ public class GoogleTest1 extends SpringBaseTestNGTests {
             this.googlePage.getSearchComponent().clearSearchBox();
             this.googlePage.delay(1000); // debugging
             this.loggerConfig.getloggingService().logMessage("Delaying the process for debugging purpose");
-            this.googlePage.getSearchComponent().search("environment");
-            this.loggerConfig.getloggingService().logMessage("Searching a text environment");
+            this.googlePage.getSearchComponent().search("spring boot");
+            this.loggerConfig.getloggingService().logMessage("Searching a text spring boot");
             Assert.assertTrue(this.googlePage.getSearchResultComponent().isAt());
             this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
             Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
             this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
             this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
-            this.screenShotUtil.takeScreenshot("GOOGLE11");
-            this.googlePage.close();
-            this.loggerConfig.getloggingService().logMessage("..............................................");
-        } catch (Exception e) {
-            System.out.println("----------------------------------------------------------------");
-            e.printStackTrace();
-            System.out.println("----------------------------------------------------------------");
-        }
-    }
-
-    @Test
-    public void googleTest12(Method method) {
-        try {
-            this.loggerConfig.getloggingService().logMessage("..............................................");
-            this.loggerConfig.getloggingService().logMessage("Running Test: "+method.getName());
-            this.googlePage.goTo();
-            this.loggerConfig.getloggingService().logMessage("Navigating to \""+this.googlePage.getUrl()+"\" web page");
-            Assert.assertTrue(this.googlePage.isAt());
-            this.loggerConfig.getloggingService().logMessage("Search bar of google page is loaded");
-            this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
-            Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
-            this.googlePage.getSearchComponent().clearSearchBox();
-            this.googlePage.delay(1000); // debugging
-            this.loggerConfig.getloggingService().logMessage("Delaying the process for debugging purpose");
-            this.googlePage.getSearchComponent().search("Selenium WebDriver");
-            this.loggerConfig.getloggingService().logMessage("Searching a text Selenium WebDriver");
-            Assert.assertTrue(this.googlePage.getSearchResultComponent().isAt());
-            this.loggerConfig.getloggingService().logMessage("Search page is loaded with all findings");
-            Assert.assertTrue(this.googlePage.getSearchResultComponent().getCount() > 2);
-            this.loggerConfig.getloggingService().logMessage("Asserting that count of searched text > 2");
-            this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
-            this.screenShotUtil.takeScreenshot("GOOGLE12");
+            this.screenShotUtil.takeScreenshot("GOOGLE31");
             this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
         } catch (Exception e) {

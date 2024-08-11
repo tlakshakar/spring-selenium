@@ -15,11 +15,12 @@ import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-@Lazy // It is not related to inject a bean uniquely
-@Component
-//@LazyConfiguration
+//@Lazy // It is not related to inject a bean uniquely
+//@Component
+@LazyConfiguration
 public class ScreenshotUtil {
     /**
      * ISSUE - In the 1st run/execution "TakesScreenshot driver" will be quit and
@@ -48,7 +49,7 @@ public class ScreenshotUtil {
      */
     public void takeScreenshot(final String imageName) {
         try {
-            String currentWorkingDir = System.getProperty("user.dir");
+            String currentWorkingDir = System.getProperty("user.dir") + FileSystems.getDefault().getSeparator() + "screenshots";
             System.out.println("Current working directory: " + currentWorkingDir);
 
             // Call getScreenshotAs method to create image file
@@ -84,7 +85,7 @@ public class ScreenshotUtil {
      */
     public void takeScreenshot() {
         try {
-            String currentWorkingDir = System.getProperty("user.dir");
+            String currentWorkingDir = System.getProperty("user.dir") + FileSystems.getDefault().getSeparator() + "screenshots";
             System.out.println("Current working directory: " + currentWorkingDir);
 
             // Call getScreenshotAs method to create image file

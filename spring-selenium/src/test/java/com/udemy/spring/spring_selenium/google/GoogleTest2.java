@@ -44,7 +44,7 @@ public class GoogleTest2 extends SpringBaseTestNGTests {
             this.loggerConfig.getloggingService().logMessage("Getting the title of browser");
             Assert.assertEquals(this.googlePage.getGooglePageTitle(), "Google");
             this.loggerConfig.getloggingService().logMessage("Capturing screenshot");
-            this.screenShotUtil.takeScreenshot("GOOGLE21.png");
+            this.screenShotUtil.takeScreenshot("GOOGLE21");
             this.loggerConfig.getloggingService().logMessage("Quitting/Closing the browser");
             this.googlePage.close();
             this.loggerConfig.getloggingService().logMessage("..............................................");
