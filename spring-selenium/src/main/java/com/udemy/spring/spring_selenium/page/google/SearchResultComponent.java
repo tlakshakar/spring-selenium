@@ -1,10 +1,9 @@
 package com.udemy.spring.spring_selenium.page.google;
 
-import com.udemy.spring.spring_selenium.custom_annotation.PageFragment;
+import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.PageFragment;
 import com.udemy.spring.spring_selenium.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.udemy.spring.spring_selenium.page;
 
-import com.udemy.spring.spring_selenium.config.LoggerConfig;
+import com.udemy.spring.spring_selenium.spring_configurations.config.LoggerConfig;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.openqa.selenium.WebDriver;

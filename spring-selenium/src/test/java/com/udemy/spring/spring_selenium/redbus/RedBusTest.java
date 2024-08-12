@@ -2,8 +2,9 @@ package com.udemy.spring.spring_selenium.redbus;
 
 import com.udemy.spring.spring_selenium.page.redbus.RedBusPage;
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
-import com.udemy.spring.spring_selenium.util.CommonUtil;
-import com.udemy.spring.spring_selenium.util.ScreenshotUtil;
+import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.LazyAutowired;
+import com.udemy.spring.spring_selenium.spring_configurations.util.CommonUtil;
+import com.udemy.spring.spring_selenium.spring_configurations.util.ScreenshotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
@@ -13,13 +14,15 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 
 public class RedBusTest extends SpringBaseTestNGTests {
-    @Lazy
-    @Autowired
+//    @Lazy
+//    @Autowired
+    @LazyAutowired
     private RedBusPage redBusPage;
 
-    @Lazy
-    @Autowired
-    private ScreenshotUtil screenshotUtil;
+//    @Lazy
+//    @Autowired
+    @LazyAutowired
+    private ScreenshotService screenshotUtil;
 
     @BeforeSuite
     public void setup() {

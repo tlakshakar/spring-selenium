@@ -1,6 +1,8 @@
 package com.udemy.spring.spring_selenium.singleton_scope_annotation_demo;
 
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
+import com.udemy.spring.spring_selenium.spring_configurations.singleton_scope_annotation_demo.JuniorEng;
+import com.udemy.spring.spring_selenium.spring_configurations.singleton_scope_annotation_demo.SeniorEng;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;

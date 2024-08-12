@@ -1,15 +1,13 @@
 package com.udemy.spring.spring_selenium.page.redbus;
 
-import com.udemy.spring.spring_selenium.custom_annotation.PageFragment;
+import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.PageFragment;
 import com.udemy.spring.spring_selenium.page.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
