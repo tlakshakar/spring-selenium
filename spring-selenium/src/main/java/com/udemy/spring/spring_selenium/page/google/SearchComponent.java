@@ -20,10 +20,10 @@ public class SearchComponent extends Base {
         this.searchBox.sendKeys(keyword);
         this.searchBox.sendKeys(Keys.TAB);
         this.searchBtns
-                .stream()
-                .filter(e-> e.isDisplayed() && e.isEnabled())
-                .findFirst()
-                .ifPresent(WebElement::click);
+                .stream() // Converts the 'buttons' collection into a stream, allowing for functional-style operations.
+                .filter(e-> e.isDisplayed() && e.isEnabled()) // Filters the stream to include only those elements that are both displayed and enabled. This ensures that only clickable buttons are considered.
+                .findFirst() // Finds the first element in the filtered stream
+                .ifPresent(WebElement::click); // If an element is found (i.e., the Optional is not empty), it clicks the element
     }
 
     public void clearSearchBox() { this.searchBox.clear(); }
