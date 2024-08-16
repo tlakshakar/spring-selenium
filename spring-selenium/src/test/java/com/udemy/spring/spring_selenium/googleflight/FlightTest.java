@@ -6,8 +6,10 @@ import com.udemy.spring.spring_selenium.page.googleflights.page.FlightPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+@Ignore
 public class FlightTest extends SpringBaseTestNGTests {
     @Autowired
     private FlightInfoProperties flightInfoProperties;

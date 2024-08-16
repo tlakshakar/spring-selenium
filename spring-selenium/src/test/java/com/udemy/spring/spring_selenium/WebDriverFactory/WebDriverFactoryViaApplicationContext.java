@@ -21,8 +21,10 @@ public class WebDriverFactoryViaApplicationContext extends SpringBaseTestNGTests
     @Test
     @Ignore // TODO: Remove this if you want this test to be working
     public void browserTest() {
+        // Here, "chromeDriver" is similar to methods present inside WebDriverConfig/WebDriverConfigWithoutThreadScopeBean class
         this.ctx.getBean("chromeDriver", WebDriver.class).get("https://www.google.com/"); // retrieves a bean named chromeDriver of type WebDriver from the application context and opens the URL in the Chrome browser.
         this.ctx.getBean("chromeDriver", WebDriver.class).quit();
+        // Here, "firefoxDriver" is similar to methods present inside WebDriverConfig/WebDriverConfigWithoutThreadScopeBean class
         this.ctx.getBean("firefoxDriver", WebDriver.class).get("https://www.wikipedia.org/");
         this.ctx.getBean("firefoxDriver", WebDriver.class).quit();
     }

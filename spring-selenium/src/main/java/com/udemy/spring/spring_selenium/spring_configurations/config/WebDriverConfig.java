@@ -30,17 +30,19 @@ import org.springframework.context.annotation.*;
  * Spring creates all singleton beans eagerly at the startup of the application context. Using @Lazy, you can defer the creation of a bean until it is actually needed, which can help improve the startup time of your application.
  * You can apply @Lazy to @Component and @Bean definitions.
  * It is not related to inject a bean uniquely.
- */
-//@Lazy // It is not related to inject a bean uniquely
-//@Configuration
-/**
- * @Profile -- This annotation allows you to conditionally activate or deactivate beans based on specific profiles.
+ *
+ * @Profile
+ *
+ * This annotation allows you to conditionally activate or deactivate beans based on specific profiles.
  * Profiles are a way to segregate parts of your application configuration and make them available only in certain environments (e.g., development, testing, production).
  * You can assign profiles to beans using the @Profile annotation.
  * Let’s say you have a bean that should only be active during development but not deployed in production.
  * You can annotate that bean with the @Profile("dev") annotation.
  * It will only be present in the container during development. In production, the dev profile won’t be active.
  */
+
+//@Lazy // It is not related to inject a bean uniquely
+//@Configuration
 @Profile("!remote") // NOT condition
 @LazyConfiguration
 public class WebDriverConfig {
@@ -58,6 +60,10 @@ public class WebDriverConfig {
      *
      * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
      * you can use @Primary to give higher preference to a specific bean.
+     *
+     * @Scope("prototype")
+     *
+     * The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
      */
 //    @Bean // TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works. Just uncomment this line and delete custom annotation.
 //    @Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
@@ -80,6 +86,10 @@ public class WebDriverConfig {
      *
      * If you have multiple beans of the same type (e.g., Car and Bike for the Vehicle type),
      * you can use @Primary to give higher preference to a specific bean.
+     *
+     * @Scope("prototype")
+     *
+     * The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
      */
 //    @Bean // TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works
     //@Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.

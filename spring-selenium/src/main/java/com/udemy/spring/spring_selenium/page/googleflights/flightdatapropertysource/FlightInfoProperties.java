@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-//@PropertySource("GoogleFlightLocale/id.properties")
-@PropertySource("GoogleFlightLocale/${app.locale}.properties") // Pass {app.locale} value as a parameter
+@PropertySource("GoogleFlightLocale/id.properties") // This works
+//@PropertySource("GoogleFlightLocale/${app.locale}.properties") // Pass {app.locale} value as a parameter
 public class FlightInfoProperties {
     @Value("${flight.app.url}")
     private String url;
