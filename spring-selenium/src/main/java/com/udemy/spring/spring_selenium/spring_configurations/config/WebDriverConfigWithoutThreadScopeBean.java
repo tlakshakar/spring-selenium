@@ -25,6 +25,8 @@ import java.time.Duration;
 
 // TODO: Disabling this class as we have WebDriverConfig
 
+//@Lazy // It is not related to inject a bean uniquely
+//@Configuration
 /*@Profile("!remote")
 @LazyConfiguration
 public class WebDriverConfigWithoutThreadScopeBean {
@@ -32,7 +34,7 @@ public class WebDriverConfigWithoutThreadScopeBean {
     private int timeout;
 
     @Bean
-    @Scope("prototype")
+    @Scope("prototype") // FIXME: The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers. It's better to use BrowserScope.
     @ConditionalOnProperty(name = "browser", havingValue = "firefox") // Will comment this line to use Spring’s ApplicationContext to manage WebDriver instances for different browsers
     public WebDriver firefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
@@ -40,7 +42,7 @@ public class WebDriverConfigWithoutThreadScopeBean {
     }
 
     @Bean
-    @Scope("browserscope")
+    @Scope("browserscope") // Spring will look for this scope in its lifecycle.
     @ConditionalOnMissingBean // Will comment this line to use Spring’s ApplicationContext to manage WebDriver instances for different browsers
     public WebDriver chromeDriver() {
         WebDriverManager.chromedriver().setup();

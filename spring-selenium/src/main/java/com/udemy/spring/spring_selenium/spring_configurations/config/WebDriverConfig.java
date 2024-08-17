@@ -66,7 +66,7 @@ public class WebDriverConfig {
      * The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
      */
 //    @Bean // TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works. Just uncomment this line and delete custom annotation.
-//    @Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
+//    @Scope("prototype") // FIXME: The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is PROBLEMATIC. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
     @ThreadScopeBean
     //@Primary
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
@@ -91,9 +91,9 @@ public class WebDriverConfig {
      *
      * The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
      */
-//    @Bean // TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works
-    //@Scope("prototype") // The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers.
-//    @Scope("browserscope") // Spring will look for this scope in its lifecycle. TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works. Just uncomment this line and delete custom annotation.
+//    @Bean // TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works. Just uncomment this line and delete custom annotation (@ThreadScopeBean).
+    //@Scope("prototype") // FIXME: The @Scope("prototype") annotation ensures that each time the chromeDriver bean is requested, a new instance of ChromeDriver will be created. This is problematic. As at many place, we have seen chromeDriver bean is requested which then opens multiple browsers. It's better to use BrowserScope.
+//    @Scope("browserscope") // Spring will look for this scope in its lifecycle. TODO: Refactored as custom annotation - @ThreadScopeBean. Without this annotation it also works. Just uncomment this line and delete custom annotation (@ThreadScopeBean).
     @ThreadScopeBean
     @ConditionalOnMissingBean
     public WebDriver chromeDriver() {
