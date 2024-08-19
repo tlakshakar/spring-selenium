@@ -2,7 +2,7 @@ package com.udemy.spring.spring_selenium.googleflight;
 
 import com.udemy.spring.spring_selenium.SpringBaseTestNGTests;
 import com.udemy.spring.spring_selenium.page.googleflights.flightdatapropertysource.FlightInfoProperties;
-import com.udemy.spring.spring_selenium.page.googleflights.page.FlightPage;
+import com.udemy.spring.spring_selenium.page.googleflights.page.FlightWebPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -15,7 +15,7 @@ public class FlightTest extends SpringBaseTestNGTests {
     private FlightInfoProperties flightInfoProperties;
 
     @Autowired
-    private FlightPage flightPage;
+    private FlightWebPage flightPage;
 
     @Test
     public void flightTest() {

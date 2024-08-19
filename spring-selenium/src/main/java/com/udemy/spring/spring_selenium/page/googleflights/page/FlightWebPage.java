@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @PageAnnotations
-public class FlightPage extends Base {
+public class FlightWebPage extends Base {
     private JavascriptExecutor jse;
     @FindBy(css = "[aria-label='Flight']")
     private WebElement flightSearch;
