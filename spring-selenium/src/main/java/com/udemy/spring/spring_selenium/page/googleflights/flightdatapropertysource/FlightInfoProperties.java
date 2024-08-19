@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@PropertySource("GoogleFlightLocale/id.properties") // This works
-//@PropertySource("GoogleFlightLocale/${app.locale}.properties") // Pass {app.locale} value as a parameter
+//@PropertySource("GoogleFlightLocale/id.properties") // This works
+@PropertySource("GoogleFlightLocale/${app.locale}.properties") // In the run configuration dialog, edit the environment variables and Add the name and value of the environment variable you want to pass, such as {app.locale}.
 public class FlightInfoProperties {
     @Value("${flight.app.url}")
     private String url;
