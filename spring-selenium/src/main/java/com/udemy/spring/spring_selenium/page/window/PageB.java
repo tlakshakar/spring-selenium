@@ -2,11 +2,14 @@ package com.udemy.spring.spring_selenium.page.window;
 
 import com.udemy.spring.spring_selenium.page.Base;
 import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.PageAnnotations;
+import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.WindowAnnotations;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@PageAnnotations
+//@PageAnnotations
+@WindowAnnotations("Page B") // AOP - Aspect Oriented Programming
+// Even if the title of the page is long—for example, ‘Page B AWS Billing and Cost Management console’—and it starts with ‘Page B,’ we’ve already implemented handling for such cases under the WindowSwitchService
 public class PageB extends Base {
     @FindBy(css = "body > h1")
     private WebElement header;
@@ -32,7 +35,7 @@ public class PageB extends Base {
         this.lastName.sendKeys(lastName);
         this.address.clear();
         this.address.sendKeys(address);
-        this.textArea.clear();
+        //this.textArea.clear();
         this.textArea.sendKeys(message);
     }
 }

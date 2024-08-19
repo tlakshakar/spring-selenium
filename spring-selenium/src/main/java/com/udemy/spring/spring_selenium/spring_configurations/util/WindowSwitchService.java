@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 /**
- * AOP
+ * AOP -- Aspect Oriented Programming
  */
 @Service // Similar to @Component
 public class WindowSwitchService {
