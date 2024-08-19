@@ -16,7 +16,7 @@ public class PageB extends Base {
     private WebElement lastName;
     @FindBy(name = "addr")
     private WebElement address;
-    @FindBy(xpath = "#area")
+    @FindBy(css = "#area")
     private WebElement textArea;
 
     @Override

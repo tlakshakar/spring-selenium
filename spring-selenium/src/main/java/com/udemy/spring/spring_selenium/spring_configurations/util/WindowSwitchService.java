@@ -18,7 +18,7 @@ public class WindowSwitchService {
     public void switchWindowByTitle(final String title) {
         this.driver = this.ctx.getBean(WebDriver.class); // retrieves the WebDriver bean from the Spring context.
         this.driver.getWindowHandles()// returns a Set of all window handles.
-                .stream().map(d -> this.driver.switchTo().window(title).getTitle()) // maps each window handle to its title
+                .stream().map(handle -> this.driver.switchTo().window(handle).getTitle()) // maps each window handle to its title
                 .filter(t -> t.startsWith(title)).findFirst() // filters the titles to find one that starts with the given title.
                 .orElseThrow(() -> {
                     throw new RuntimeException("No such window!!");
