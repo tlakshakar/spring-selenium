@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestPropertySource;
 import org.testng.annotations.*;
 
-@TestPropertySource(properties = "browser=chrome")
+@TestPropertySource(properties = "browser=firefox")
 public class WindowSwitchServiceWithAOP extends SpringBaseTestNGTests {
     @Autowired
     private MainPage mainPage;
@@ -69,7 +69,7 @@ public class WindowSwitchServiceWithAOP extends SpringBaseTestNGTests {
     }
 
     /**
-     * Purpose is to provide number as pre requirement for each page
+     * Purpose is to provide number as per requirement for each page
      * @return
      */
     @DataProvider

@@ -9,6 +9,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+/**
+ * Requirement is to get labels of flights
+ */
 @Ignore
 public class FlightTest extends SpringBaseTestNGTests {
     @Autowired
