@@ -27,8 +27,9 @@ import java.nio.file.Path;
 @Service // This is used to mark a class as a service provider. This annotation is a specialization of the @Component annotation, which means it is also a Spring-managed component. Use @Service to annotate classes that perform service tasks, such as business logic or data manipulation.
 public class ScreenshotService {
     /**
-     * ISSUE - In the 1st run/execution "TakesScreenshot driver" will be quit and
-     * for the next run ScreenshotUtil won't hold reference of newly created "TakesScreenshot driver"
+     * FIXME - In the 1st run/execution, "TakesScreenshot driver" will be quit later and
+     * for the next run ScreenshotUtil won't hold reference of newly created "TakesScreenshot driver".
+     * when we try to take the screenshot, ScreenshotUtil will say that, hey spring you gave me webdriver instance using which I am taking screenshot but it seems you quit the webdriver. Did you quit?
      *
      * TODO: We need to fix this issue!! --> ApplicationContext
      */
@@ -57,7 +58,7 @@ public class ScreenshotService {
             System.out.println("Current working directory: " + currentWorkingDir);
 
             // Call getScreenshotAs method to create image file
-//            File SrcFile = this.driver.getScreenshotAs(OutputType.FILE); // TODO: We need to fix the ISSUE --> ApplicationContext
+//            File SrcFile = this.driver.getScreenshotAs(OutputType.FILE); // FIXME: We need to fix the ISSUE --> ApplicationContext
 
             checkBean();
 
@@ -93,7 +94,7 @@ public class ScreenshotService {
             System.out.println("Current working directory: " + currentWorkingDir);
 
             // Call getScreenshotAs method to create image file
-//            File SrcFile = this.driver.getScreenshotAs(OutputType.FILE); // TODO: We need to fix the ISSUE --> ApplicationContext
+//            File SrcFile = this.driver.getScreenshotAs(OutputType.FILE); // FIXME: We need to fix the ISSUE --> ApplicationContext
 
             checkBean();
 

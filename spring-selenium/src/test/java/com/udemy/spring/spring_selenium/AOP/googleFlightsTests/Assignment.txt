@@ -1,0 +1,1 @@
+Implement cross cutting concerns (AOP) where screenshot is taken only when getLabel() method of FlightPage is invoked.

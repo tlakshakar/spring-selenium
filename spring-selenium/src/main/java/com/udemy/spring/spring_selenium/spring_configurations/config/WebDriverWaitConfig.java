@@ -42,7 +42,7 @@ public class WebDriverWaitConfig {
      * @return
      */
     @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // We cannot use @ThreadScopeBean here as it is tightly coupled with WebDriver. Also, there is no way to check if this WebDriverWait is really usable or not as we did while creating BrowserScope.
     public WebDriverWait webdriverWait(WebDriver driver){
         return new WebDriverWait(driver, Duration.ofSeconds(this.timeout));
     }

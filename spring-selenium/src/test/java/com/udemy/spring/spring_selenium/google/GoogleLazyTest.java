@@ -30,7 +30,7 @@ public class GoogleLazyTest extends SpringBaseTestNGTests {
     }
 
     @Test
-    @Ignore // TODO: Remove this if you want this test to be working
+    @Ignore // TODO: Remove @Ignore if you want this test to be working
     public void googleLazyTest() {
         /*this.googlePage.goTo();
         Assert.assertTrue(this.googlePage.isAt());
