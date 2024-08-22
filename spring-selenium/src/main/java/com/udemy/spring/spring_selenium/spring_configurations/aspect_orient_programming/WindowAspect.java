@@ -59,6 +59,8 @@ public class WindowAspect {
      * and to determine when, how, and even if, the method actually gets to execute at all.
      * The @Around advice is designed to wrap the execution of a method, allowing you to control its behavior before and after execution
      *
+     * The first parameter of the advice method must be of type ProceedingJoinPoint. Within the body of the advice, calling proceed() on the ProceedingJoinPoint causes the underlying method to execute
+     *
      * TODO Reference: https://jstobigdata.com/spring/around-advice-in-spring-aop-around/
      */
     @Around("@target(com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.WindowAnnotations) && within(com.udemy.spring.spring_selenium..*)")

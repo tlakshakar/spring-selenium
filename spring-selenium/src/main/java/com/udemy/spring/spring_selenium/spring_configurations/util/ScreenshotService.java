@@ -31,7 +31,7 @@ public class ScreenshotService {
      * for the next run ScreenshotUtil won't hold reference of newly created "TakesScreenshot driver".
      * when we try to take the screenshot, ScreenshotUtil will say that, hey spring you gave me webdriver instance using which I am taking screenshot but it seems you quit the webdriver. Did you quit?
      *
-     * TODO: We need to fix this issue!! --> ApplicationContext
+     * TODO: We need to fix this issue!! --> ApplicationContext will help
      */
 //    @Autowired
 //    private TakesScreenshot driver;
@@ -137,15 +137,15 @@ public class ScreenshotService {
      */
     @PostConstruct
     public void init() {
-        System.out.println(".....................................<START>.....................................");
+        System.out.println("................................................<START>................................................");
         try {
             for (int i = 0; i < 10; i++) {
                 Thread.sleep(1000); // Sleep for 1 second (1000 milliseconds)
-                System.out.println("Doing heavy operations like DB, Searching or Indexing large documents............");
+                System.out.println("<ScreenshotService> - Doing heavy operations like DB, Searching or Indexing large documents............");
             }
         } catch (InterruptedException e) {
             System.out.println(e);
         }
-        System.out.println("......................................<END>......................................");
+        System.out.println(".................................................<END>.................................................");
     }
 }

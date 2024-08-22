@@ -1,6 +1,7 @@
 package com.udemy.spring.spring_selenium.page.googleflights.page;
 
 import com.udemy.spring.spring_selenium.page.Base;
+import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.Loggable;
 import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.PageAnnotations;
 import com.udemy.spring.spring_selenium.spring_configurations.custom_annotation.TakeScreenshotAnnotations;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 /**
  * Implement Aspect Oriented Programming -- AOP
+ * Spring AOP uses proxy-based mechanisms. If you’re invoking the methods within the same class (e.g., calling goTo from another method in FlightWebPageWithAOP), the aspect won’t be applied.
  */
 @PageAnnotations
 public class FlightWebPageWithAOP extends Base {
@@ -23,6 +25,7 @@ public class FlightWebPageWithAOP extends Base {
     private List<WebElement> buttons;
 
     @Override
+    @Loggable("isAt()")
     public boolean isAt() {
         jse = (JavascriptExecutor) driver;
         boolean isLoaded = this.webDriverWait.until((driver) -> jse.executeScript("return document.readyState").equals("complete"));
@@ -30,6 +33,7 @@ public class FlightWebPageWithAOP extends Base {
         return (isLoaded && isNotEmpty);
     }
 
+    @Loggable("getLabels()")
     @TakeScreenshotAnnotations
     public List<String> getLabels() {
         return this.buttons.stream() // Converts the 'buttons' collection into a stream, allowing for functional-style operations.
@@ -39,11 +43,13 @@ public class FlightWebPageWithAOP extends Base {
                 .collect(Collectors.toList()); // Collects the processed stream elements into a List<String> and returns it.
     }
 
+    @Loggable("goTo()")
     public void goTo(final String url) {
         this.driver.get(url);
         this.driver.manage().window().maximize();
     }
 
+    @Loggable("close()")
     public void close() {
         this.driver.quit();
     }
