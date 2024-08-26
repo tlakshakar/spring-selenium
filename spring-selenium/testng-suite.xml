@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="spring-boot" parallel="tests" thread-count="3">
-    <test name="GTest_1">
+    <!--<test name="GTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest1" />
             <class name="com.udemy.spring.spring_selenium.google.GoogleTest2" />
@@ -15,6 +15,13 @@
     <test name="RTest_1">
         <classes>
             <class name="com.udemy.spring.spring_selenium.redbus.RedBusTest" />
+        </classes>
+    </test>-->
+    <test name="VTest_1">
+        <parameter name="dobStartFrom" value="1995-01-01"/>
+        <parameter name="dobEndTo" value="1997-01-01"/>
+        <classes>
+            <class name="com.udemy.spring.spring_selenium.spring_boot_data_JPA.CustomerVisaTest" />
         </classes>
     </test>
 </suite>
