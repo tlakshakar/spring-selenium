@@ -22,8 +22,17 @@ import org.springframework.context.annotation.Bean;
 //@Configuration
 @LazyConfiguration
 public class LoggerConfig {
+    /**
+     * Inside this class, there’s a method annotated with @Bean.
+     * When Spring initializes the application context, it will invoke this method and register the returned LoggingService object as a bean.
+     *
+     * @return
+     */
     @Bean
     public LoggingService getloggingService() {
+        /**
+         * This means that whenever you request the “loggingService” bean from the Spring container, it will provide this newly created LoggingService instance.
+         */
         return new LoggingService();
     }
 }
