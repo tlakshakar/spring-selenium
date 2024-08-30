@@ -1,14 +1,13 @@
 package com.udemy.spring.cucumberwithspringboot.BDD;
 
 import com.udemy.spring.cucumberwithspringboot.BDD.configuration.SpringIntegrationTest;
-import com.udemy.spring.cucumberwithspringboot.spring_boot_data_JPA_page.visa.VisaRegistrationPage;
+import com.udemy.spring.cucumberwithspringboot.page.spring_boot_data_jpa.visa.VisaRegistrationPage;
 import com.udemy.spring.cucumberwithspringboot.spring_configurations.custom_annotation.LazyAutowired;
 import com.udemy.spring.cucumberwithspringboot.spring_configurations.util.LoggingService;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.StringUtils;
 import org.testng.Assert;
 
@@ -31,6 +30,8 @@ import java.time.LocalDate;
  * searchkeyword
  * verifyresult
  * So, for your case, you can use factory class where it makes perfect sense.
+ *
+ * TODO: But other than 'browser' property, we can give a try to set some other property
  */
 public class VisaStepsIntegrationTest extends SpringIntegrationTest {
     @LazyAutowired

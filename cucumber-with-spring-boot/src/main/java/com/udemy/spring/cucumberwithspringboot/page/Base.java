@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Lazy;
 
 public abstract class Base {
     @Autowired
-    protected WebDriver driver;
+    protected WebDriver driver; // Instead of manually configuring and creating objects, Spring automatically injects the necessary dependencies into your beans. -- WebDriverConfig
     @Autowired
-    protected WebDriverWait webDriverWait;
+    protected WebDriverWait webDriverWait; // Instead of manually configuring and creating objects, Spring automatically injects the necessary dependencies into your beans. -- WebDriverConfig
     @Lazy
     @Autowired
     private LoggingService loggerConfig;
@@ -37,7 +37,7 @@ public abstract class Base {
      */
     @PostConstruct
     public void init() {
-        loggerConfig.debug(
+        loggerConfig.logMessage(
                 "Bean Base has been "
                         + "instantiated and I'm "
                         + "the init() method");

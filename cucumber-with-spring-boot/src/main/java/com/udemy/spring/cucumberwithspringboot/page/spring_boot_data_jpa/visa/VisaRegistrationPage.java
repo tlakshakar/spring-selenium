@@ -1,4 +1,4 @@
-package com.udemy.spring.cucumberwithspringboot.spring_boot_data_JPA_page.visa;
+package com.udemy.spring.cucumberwithspringboot.page.spring_boot_data_jpa.visa;
 
 import com.udemy.spring.cucumberwithspringboot.page.Base;
 import com.udemy.spring.cucumberwithspringboot.spring_configurations.custom_annotation.PageAnnotations;

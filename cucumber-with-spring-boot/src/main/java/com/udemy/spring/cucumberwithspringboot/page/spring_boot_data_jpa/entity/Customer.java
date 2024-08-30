@@ -1,4 +1,4 @@
-package com.udemy.spring.cucumberwithspringboot.spring_boot_data_JPA_page.entity;
+package com.udemy.spring.cucumberwithspringboot.page.spring_boot_data_jpa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

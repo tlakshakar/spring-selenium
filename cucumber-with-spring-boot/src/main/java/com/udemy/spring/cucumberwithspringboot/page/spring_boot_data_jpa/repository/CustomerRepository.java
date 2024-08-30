@@ -1,6 +1,6 @@
-package com.udemy.spring.cucumberwithspringboot.spring_boot_data_JPA_page.repository;
+package com.udemy.spring.cucumberwithspringboot.page.spring_boot_data_jpa.repository;
 
-import com.udemy.spring.cucumberwithspringboot.spring_boot_data_JPA_page.entity.Customer;
+import com.udemy.spring.cucumberwithspringboot.page.spring_boot_data_jpa.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

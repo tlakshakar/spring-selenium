@@ -1,7 +1,9 @@
 package com.udemy.spring.cucumberwithspringboot.spring_configurations.config;
 
+import com.udemy.spring.cucumberwithspringboot.spring_configurations.custom_annotation.LazyAutowired;
 import com.udemy.spring.cucumberwithspringboot.spring_configurations.custom_annotation.LazyConfiguration;
 import com.udemy.spring.cucumberwithspringboot.spring_configurations.custom_annotation.ThreadScopeBean;
+import com.udemy.spring.cucumberwithspringboot.spring_configurations.util.LoggingService;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -48,7 +50,8 @@ import org.springframework.context.annotation.*;
 public class WebDriverConfig {
     @Value("${default.timeout:30}")
     private int timeout;
-
+    @LazyAutowired
+    private LoggingService logger;
 
     /**
      * @ConditionalOnProperty(name = "browser", havingValue = "firefox")
@@ -71,12 +74,16 @@ public class WebDriverConfig {
     //@Primary
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver firefoxDriver() {
+        logger.info("Loading Firefox Driver");
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
     }
 
 
     /**
+     * The main aim of this method is to create WebDriver Bean.
+     * Now wherever I want, I can @Autowire WebDriver.
+     *
      * @ConditionalOnProperty(name = "browser", havingValue = "chrome")
      *
      * When building Spring-based applications, you often need to create beans conditionally based on configuration properties.
@@ -97,6 +104,7 @@ public class WebDriverConfig {
     @ThreadScopeBean
     @ConditionalOnMissingBean
     public WebDriver chromeDriver() {
+        logger.info("Loading Chrome Driver");
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
