@@ -119,6 +119,17 @@ public class ScreenshotService {
     }
 
     /**
+     * This method is used in CucumberHooks scenario where it is returning byte[]
+     * Inside the method:
+     *      this.ctx.getBean(TakesScreenshot.class) retrieves an instance of TakesScreenshot from the Spring application context.
+     *      .getScreenshotAs(OutputType.BYTES) captures a screenshot and returns it as a byte array.
+     * @return
+     */
+    public byte[] getScreenshot() {
+        return this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.BYTES);
+    }
+
+    /**
      * Purpose of this is to check if a bean implements the TakesScreenshot interface
      */
     private void checkBean() {

@@ -1,6 +1,7 @@
+@google # Defined under CucumberRunner
 Feature: Google search
 
-  @google # Defined under CucumberRunner
+  @smoke # Defined under CucumberRunner
   Scenario Outline: Search for a keyword at Google
     Given I am on the google site
     When I enter "<keyword>" as a keyword
@@ -12,4 +13,4 @@ Feature: Google search
       | keyword     | count       |
       | selenium    | 2           |
       | java        | 5           |
-      | spring      | 7           |
+      | spring      | 37          |

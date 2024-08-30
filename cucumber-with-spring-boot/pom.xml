@@ -100,44 +100,50 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<!-- It is like a diligent tester for your Java projects.
-            When you run your Maven build, it ensures that your unit tests (those little code snippets that verify your functions work correctly) are executed.
-            It’s like having an automated quality control team that checks your code behaves as expected!
-            The main goal is surefire:test, which runs the unit tests.
-            After running the tests, the plugin generates reports in 2-formats (.txt and ${basedir}/target/surefire-reports/TEST-*.xml)
-            -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.plugin}</version>
-				<configuration>
-					<includes>
-						<include>**/*Test.java</include>
-					</includes>
-					<systemPropertyVariables>
-						<spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
-					</systemPropertyVariables>
-					<suiteXmlFiles>
-						<suiteXmlFile>testng-suite.xml</suiteXmlFile>
-					</suiteXmlFiles>
-				</configuration>
 
-				<dependencies>
-					<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-testng -->
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-testng</artifactId>
-						<version>3.3.1</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
-
-</project>
+</project><build>
+<plugins>
+	<plugin>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+	</plugin>
+	<!-- It is like a diligent tester for your Java projects.
+    When you run your Maven build, it ensures that your unit tests (those little code snippets that verify your functions work correctly) are executed.
+    It’s like having an automated quality control team that checks your code behaves as expected!
+    The main goal is surefire:test, which runs the unit tests.
+    After running the tests, the plugin generates reports in 2-formats (.txt and ${basedir}/target/surefire-reports/TEST-*.xml)
+    -->
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>${maven.surefire.plugin}</version>
+		<configuration>
+			<includes>
+				<include>**/*Test.java</include>
+				<include>com.udemy.spring.cucumberwithspringboot.CucumberRunner</include>
+			</includes>
+			<systemPropertyVariables>
+				<spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
+			</systemPropertyVariables>
+			<!--					<suiteXmlFiles>-->
+			<!--						<suiteXmlFile>testng-suite.xml</suiteXmlFile>-->
+			<!--					</suiteXmlFiles>-->
+			<!-- In case of Cucumber, The default thread count of the dataprovider in parallel mode is 10. To change this, the dataproviderthreadcount property needs to be added to the configuration section of the Surefire plugin in the POM -->
+			<properties>
+				<property>
+					<name>dataproviderthreadcount</name>
+					<value>2</value>
+				</property>
+			</properties>
+		</configuration>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-testng -->
+			<dependency>
+				<groupId>org.apache.maven.surefire</groupId>
+				<artifactId>surefire-testng</artifactId>
+				<version>3.3.1</version>
+			</dependency>
+		</dependencies>
+	</plugin>
+</plugins>
+</build>

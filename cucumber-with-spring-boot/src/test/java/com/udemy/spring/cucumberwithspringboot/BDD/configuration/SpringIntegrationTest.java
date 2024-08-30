@@ -14,7 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  * When combined with Cucumber, it ensures that your Cucumber steps have access to the Spring context.
  */
 @CucumberContextConfiguration
-@SpringBootTest
+@SpringBootTest(properties = "browser=firefox")
+//@SpringBootTest
 public class SpringIntegrationTest {
 
 }
