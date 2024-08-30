@@ -1,3 +1,4 @@
+@regression
 Feature: User visa registration feature
 
   @visa # Defined under CucumberRunner

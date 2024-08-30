@@ -7,7 +7,6 @@ import com.udemy.spring.cucumberwithspringboot.spring_configurations.util.Loggin
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 
 public class GoogleStepsIntegrationTest extends SpringIntegrationTest {

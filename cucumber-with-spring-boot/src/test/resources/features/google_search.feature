@@ -1,7 +1,7 @@
-@google # Defined under CucumberRunner
+@smoke
 Feature: Google search
 
-  @smoke # Defined under CucumberRunner
+  @google # Defined under CucumberRunner
   Scenario Outline: Search for a keyword at Google
     Given I am on the google site
     When I enter "<keyword>" as a keyword
